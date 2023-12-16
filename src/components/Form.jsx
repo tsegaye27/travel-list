@@ -3,6 +3,12 @@ import { useState } from "react";
 export default function Form() {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -10,6 +16,7 @@ export default function Form() {
 
     const newItem = { description, quantity, id: Date.now(), packed: false };
     console.log(newItem);
+    handleAddItems(newItem);
 
     setDescription("");
     setQuantity(1);
