@@ -10,7 +10,6 @@ export default function Form({ onAddItems }) {
     if (!description) return;
 
     const newItem = { description, quantity, id: Date.now(), packed: false };
-    console.log(newItem);
     onAddItems(newItem);
 
     setDescription("");
