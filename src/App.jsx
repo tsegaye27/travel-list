@@ -15,6 +15,13 @@ export default function App() {
     setItems((items) => [...items, item]);
   }
 
+  function handleClearList() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+    if (confirmed) setItems([]);
+  }
+
   function handleDeleteItem(id) {
     setItems((items) => items.filter((item) => item.id !== id));
   }
@@ -35,6 +42,7 @@ export default function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
